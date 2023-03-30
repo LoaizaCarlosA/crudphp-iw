@@ -2,7 +2,7 @@
 include("conexion.php");
 $con = conectar();
 
-$sql = "SELECT *  FROM Ordenes";
+$sql = "SELECT *  FROM orden";
 $query = mysqli_query($con, $sql);
 
 ?>
@@ -26,10 +26,10 @@ $query = mysqli_query($con, $sql);
                 <h1>Ingrese datos</h1>
                 <form action="insertar.php" method="POST">
 
-                    <input type="text" class="form-control mb-3" name="id" placeholder="Escribe un ID">
+                    <input type="text" class="form-control mb-3" name="codigo_id" placeholder="Código ID">
                     <input type="text" class="form-control mb-3" name="fecha_orden" placeholder="Fecha de orden">
-                    <input type="text" class="form-control mb-3" name="id_cte" placeholder="ID del cliente">
-                    <input type="text" class="form-control mb-3" name="id_pdto" placeholder="ID del producto">
+                    <input type="text" class="form-control mb-3" name="id_cte" placeholder="ID de cliente">
+                    <input type="text" class="form-control mb-3" name="id_pdto" placeholder="ID de producto">
                     <input type="text" class="form-control mb-3" name="cantidad" placeholder="Cantidad">
                     <input type="text" class="form-control mb-3" name="creado" placeholder="Creación">
 
@@ -41,7 +41,7 @@ $query = mysqli_query($con, $sql);
                 <table class="table">
                     <thead class="table-success table-striped">
                         <tr>
-                            <th>ID</th>
+                            <th>Código</th>
                             <th>Fecha de orden</th>
                             <th>ID de cliente</th>
                             <th>ID de producto</th>
@@ -57,14 +57,14 @@ $query = mysqli_query($con, $sql);
                         while ($row = mysqli_fetch_array($query)) {
                         ?>
                             <tr>
-                                <th><?php echo $row['id'] ?></th>
+                                <th><?php echo $row['codigo_id'] ?></th>
                                 <th><?php echo $row['fecha_orden'] ?></th>
                                 <th><?php echo $row['id_cte'] ?></th>
                                 <th><?php echo $row['id_pdto'] ?></th>
                                 <th><?php echo $row['cantidad'] ?></th>
                                 <th><?php echo $row['creado'] ?></th>
-                                <th><a href="actualizar.php?id=<?php echo $row['id'] ?>" class="btn btn-info">Editar</a></th>
-                                <th><a href="delete.php?id=<?php echo $row['id'] ?>" class="btn btn-danger">Eliminar</a></th>
+                                <th><a href="actualizar.php?id=<?php echo $row['codigo_id'] ?>" class="btn btn-info">Editar</a></th>
+                                <th><a href="delete.php?id=<?php echo $row['codigo_id'] ?>" class="btn btn-danger">Eliminar</a></th>
                             </tr>
                         <?php
                         }

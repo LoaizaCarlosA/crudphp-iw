@@ -5,7 +5,7 @@ function conectar()
     $user = "root";
     $pass = "";
 
-    $bd = "libreria";
+    $bd = "Ordenes";
 
     $con = mysqli_connect($host, $user, $pass);
 
